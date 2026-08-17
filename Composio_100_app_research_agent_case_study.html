@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App Research Agent — 100-App Integration Intelligence Case Study</title>
+  <style>
+    :root{--navy:#0f172a;--blue:#2563eb;--green:#16a34a;--amber:#d97706;--red:#dc2626;--slate:#475569;--muted:#64748b;--light:#f1f5f9;--line:#e2e8f0;--white:#fff}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--navy);background:#e2e8f0;line-height:1.45}
+    .deck{max-width:1360px;margin:0 auto;padding:26px 16px 64px}.slide{position:relative;min-height:720px;background:#fff;margin:0 0 26px;padding:42px 48px 48px;border-radius:12px;box-shadow:0 16px 42px rgba(15,23,42,.13);overflow:hidden}.dark{background:var(--navy);color:#fff}.eyebrow{color:var(--blue);font-size:11px;font-weight:850;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}.dark .eyebrow{color:#93c5fd}h1{font-size:47px;line-height:1.05;margin:0 0 18px;max-width:1010px}h2{font-size:30px;line-height:1.15;margin:0 0 8px}h3{font-size:16px;margin:0 0 8px}.subtitle{font-size:16px;color:var(--slate);max-width:1110px;margin:0 0 18px}.dark .subtitle{color:#cbd5e1}.footer{position:absolute;left:48px;right:48px;bottom:16px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}.dark .footer{color:#94a3b8}.grid{display:grid;gap:18px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.card{border:1px solid var(--line);border-radius:10px;background:var(--light);padding:15px 17px}.label{color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.value{font-size:27px;font-weight:850;margin:5px 0}.small{color:var(--slate);font-size:12px}.blue{color:var(--blue)}.green{color:var(--green)}.amber{color:var(--amber)}.red{color:var(--red)}.pill{display:inline-block;border-radius:999px;padding:3px 8px;color:#fff;font-size:10px;font-weight:850}.p-green{background:var(--green)}.p-amber{background:var(--amber)}.p-red{background:var(--red)}.p-blue{background:var(--blue)}
+    ul.clean{list-style:none;padding:0;margin:12px 0}ul.clean li{position:relative;padding-left:24px;margin:12px 0;font-size:14px}ul.clean li:before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:850}.warn li:before{content:'!';color:var(--amber)}table{border-collapse:collapse;width:100%;font-size:12px}th{background:var(--navy);color:#fff;text-align:left;padding:9px;font-size:10px;letter-spacing:.03em}td{border:1px solid var(--line);padding:8px;vertical-align:top}tr:nth-child(even) td{background:#f8fafc}.note{margin-top:14px;padding:11px 13px;border-left:4px solid var(--amber);background:#fff7ed;font-size:13px}.flow{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;gap:10px;margin-top:26px}.flowbox{min-height:116px;border-radius:10px;padding:13px;color:#fff;font-size:12px}.flowbox strong{font-size:15px;display:block;margin-bottom:8px}.arrow{font-size:24px;color:var(--muted);text-align:center}.taxonomy{display:grid;grid-template-columns:215px 1fr;gap:12px 18px;align-items:center;margin-top:20px}.tag{border-radius:8px;padding:10px;color:#fff;font-size:13px;font-weight:850}.trigger{background:var(--navy);color:#fff;border-radius:14px;padding:24px}.trigger code{display:block;padding:11px;border-radius:7px;background:#1e293b;border:1px solid #334155;color:#bfdbfe;margin:12px 0;font-size:13px}.steps{counter-reset:steps;list-style:none;padding:0}.steps li{position:relative;padding-left:43px;margin:15px 0}.steps li:before{counter-increment:steps;content:counter(steps);position:absolute;left:0;top:-2px;width:27px;height:27px;display:grid;place-items:center;color:#fff;background:var(--blue);font-weight:850;border-radius:50%}.demo{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}.qr{width:230px;height:230px;margin:auto;display:grid;place-items:center;background:repeating-conic-gradient(#0f172a 0 25%,#fff 0 50%) 0/25px 25px;border:3px solid var(--navy)}.qr span{display:block;width:150px;padding:12px;background:#fff;text-align:center;font-size:12px;font-weight:800}.files{display:flex;gap:10px;flex-wrap:wrap}.file{background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;border-radius:8px;padding:8px 11px;font-size:12px;font-weight:750}.app-table{table-layout:fixed;font-size:10px}.app-table th,.app-table td{padding:4px 5px}.app-table th:nth-child(1){width:18%}.app-table th:nth-child(2){width:17%}.app-table th:nth-child(3){width:17%}.app-table th:nth-child(4){width:17%}.app-table th:nth-child(5){width:15%}.app-table th:nth-child(6){width:16%}.category-row td{background:#dbeafe!important;color:#1e3a8a;font-weight:850;padding:6px}.pass{color:var(--green);font-weight:850}.partial{color:var(--amber);font-weight:850}.unresolved{color:var(--red);font-weight:850}.queue{color:var(--muted);font-weight:850}.final-output{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:13px;white-space:pre-wrap;font:11px ui-monospace,SFMono-Regular,Menlo,monospace;color:#1e293b;max-height:280px;overflow:auto}
+    @media print{body{background:#fff}.deck{padding:0;max-width:none}.slide{margin:0;box-shadow:none;border-radius:0;page-break-after:always;min-height:7.5in}}@media(max-width:800px){.slide{padding:30px 22px 48px}.g4,.g3,.g2,.demo,.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}h1{font-size:35px}h2{font-size:25px}.taxonomy{grid-template-columns:1fr}.footer{left:22px;right:22px}.app-table{font-size:8px}}
+  </style>
+</head>
+<body>
+<main class="deck">
+
+<section class="slide dark">
+  <div class="eyebrow">App Research Agent / Case Study</div>
+  <h1>From 100 App URLs to<br>Verified Integration Intelligence</h1>
+  <p class="subtitle">A self-contained research agent that classifies app integrations, exposes evidence, identifies buildability blockers, and routes uncertainty to human review.</p>
+  <div class="grid g4" style="margin-top:58px">
+    <div class="card"><div class="label">Coverage</div><div class="value blue">100 apps</div><div class="small">10 categories, 10 apps each</div></div>
+    <div class="card"><div class="label">Primary pattern</div><div class="value green">OAuth + keys</div><div class="small">Dominant authentication families</div></div>
+    <div class="card"><div class="label">Easy path</div><div class="value blue">Self-serve</div><div class="small">Most apps allow developer-led setup</div></div>
+    <div class="card"><div class="label">Trust loop</div><div class="value amber">40% → 75%</div><div class="small">Strict audit sample after verification</div></div>
+  </div>
+  <p style="margin-top:58px;font-size:16px;font-weight:800">Headline: the technical integration opportunity is broad; the hard part is accurately distinguishing credentials, approvals, commercial gates, and evidence quality.</p>
+  <div class="footer"><span>Composio AI Product Ops • 100-app agent case study • 17 Aug 2026</span><span>1</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">01 / Findings</div>
+  <h2>What the 100-app research found</h2>
+  <p class="subtitle">The final output is a structured decision record per app: what it does, how to authenticate, how accessible it is, what API surface exists, whether it is buildable, and what evidence supports the answer.</p>
+  <div class="grid g4" style="margin-top:26px">
+    <div class="card"><div class="label">Auth dominance</div><div class="value blue">OAuth2</div><div class="small">Common for multi-tenant SaaS and enterprise integrations</div></div>
+    <div class="card"><div class="label">Second pattern</div><div class="value green">API keys</div><div class="small">Common for developer platforms, data, AI, and payments</div></div>
+    <div class="card"><div class="label">Most friction</div><div class="value amber">Marketing</div><div class="small">App review, business verification, ad account, and partner controls</div></div>
+    <div class="card"><div class="label">Lowest friction</div><div class="value blue">Productivity</div><div class="small">Notion, Airtable, Linear, Asana and peers are largely self-serve</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:38px;gap:34px">
+    <div><h3>Easy wins</h3><ul class="clean"><li>HubSpot, Twilio, Mailchimp, Shopify, GitHub, Notion, Airtable, Stripe, Apify, and Supabase have clear developer pathways.</li><li>These are strong initial toolkit targets because API documentation and credential creation are broadly accessible.</li><li>Agents can support CRUD, search, reporting, workflow triggers, and structured exports today.</li></ul></div>
+    <div><h3>Outreach / review targets</h3><ul class="clean warn"><li>Salesforce, DealCloud, LinkedIn Marketing, Amazon SP-API, PitchBook, and enterprise support/data vendors need partnership or account-specific access.</li><li>Meta, Google Ads, Pinterest, WhatsApp, and Plaid need review or production-specific approval.</li><li>“Technically buildable” does not mean “commercially accessible without a customer relationship.”</li></ul></div>
+  </div>
+  <div class="footer"><span>Patterns summarized before the detailed app matrix</span><span>2</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">02 / Final output</div>
+  <h2>What one agent-generated app report looks like</h2>
+  <p class="subtitle">The app returns both a human-readable brief and a machine-readable evidence packet. This is the target output—not merely a free-text summary.</p>
+  <div class="grid g2" style="margin-top:22px;gap:24px">
+    <div>
+      <table><thead><tr><th>Field</th><th>Example: GitHub</th></tr></thead><tbody>
+        <tr><td><strong>Category & one-line description</strong></td><td>Developer platform for source control, code collaboration, CI/CD, packages, and automation.</td></tr>
+        <tr><td><strong>Auth</strong></td><td>OAuth2, fine-grained PAT, GitHub App / JWT.</td></tr>
+        <tr><td><strong>Access</strong></td><td>Credential self-serve; organization and repository permissions still constrain actions.</td></tr>
+        <tr><td><strong>API surface</strong></td><td>Broad REST + GraphQL + webhooks; repositories, PRs, issues, Actions, releases, orgs.</td></tr>
+        <tr><td><strong>Buildability</strong></td><td>Excellent. Main watchouts: scopes, rate limits, repository permissions, destructive actions.</td></tr>
+        <tr><td><strong>Evidence</strong></td><td>First-party auth, REST, GraphQL, and GitHub Apps documentation URLs.</td></tr>
+      </tbody></table>
+    </div>
+    <div>
+      <h3>Agent-readable evidence packet</h3>
+      <div class="final-output">{
+  "app": "GitHub",
+  "category": "Developer, Infra & Data",
+  "auth": {
+    "methods": ["OAuth2", "Fine-grained PAT", "GitHub App"],
+    "confidence": "high",
+    "evidence": ["https://docs.github.com/authentication"]
+  },
+  "access": {
+    "stage": "credential-self-serve",
+    "dependencies": ["repository permissions", "organization policy"]
+  },
+  "api": {"types": ["REST", "GraphQL", "Webhooks"], "breadth": "broad"},
+  "buildability": {"verdict": "excellent", "blocker": "scope and rate-limit management"},
+  "verification": {"status": "queue", "updated_at": "2026-08-17"}
+}</div>
+      <p class="small" style="margin-top:12px">The same schema supports filtering, quality checks, retesting, and updates without redoing the full research process.</p>
+    </div>
+  </div>
+  <div class="footer"><span>Final output is readable by both product reviewers and downstream agents</span><span>3</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">03 / Matrix</div>
+  <h2>Decision matrix: how the research becomes prioritization</h2>
+  <p class="subtitle">This skimmable view answers which categories are ready now, which require caveats, and which should be moved to an outreach queue.</p>
+  <table><thead><tr><th>Category</th><th>Dominant auth</th><th>Access pattern</th><th>Best opportunities</th><th>Common blocker</th><th>Action</th></tr></thead><tbody>
+    <tr><td><strong>CRM & Sales</strong></td><td>OAuth2</td><td>Mixed: self-serve to enterprise</td><td>HubSpot, Pipedrive, Zoho CRM, Close</td><td>Admin approval, instance-specific schemas</td><td><span class="pill p-amber">BUILD + OUTREACH</span></td></tr>
+    <tr><td><strong>Support & Helpdesk</strong></td><td>OAuth2 / API key</td><td>Mostly self-serve</td><td>Freshdesk, Intercom, HelpScout, Front</td><td>Plan limits and legacy auth transitions</td><td><span class="pill p-green">BUILD NOW</span></td></tr>
+    <tr><td><strong>Communication</strong></td><td>OAuth2 / token</td><td>Mostly self-serve; admin installs matter</td><td>Twilio, Discord, Telegram, Vonage</td><td>Workspace, business, or channel restrictions</td><td><span class="pill p-green">BUILD NOW</span></td></tr>
+    <tr><td><strong>Marketing & Ads</strong></td><td>OAuth2</td><td>Most review-heavy</td><td>Mailchimp, Klaviyo, SendGrid</td><td>App review, business verification, partner tiers</td><td><span class="pill p-amber">SELECTIVELY BUILD</span></td></tr>
+    <tr><td><strong>Ecommerce</strong></td><td>OAuth2 / keys</td><td>Mostly self-serve</td><td>Shopify, WooCommerce, BigCommerce</td><td>Store/seller approvals and self-hosting</td><td><span class="pill p-green">BUILD NOW</span></td></tr>
+    <tr><td><strong>Data, SEO & Scraping</strong></td><td>API key</td><td>Self-serve but credit/plan based</td><td>Apify, Firecrawl, DataForSEO</td><td>Cost, terms of service, weak vendor docs</td><td><span class="pill p-green">BUILD WITH GUARDRAILS</span></td></tr>
+    <tr><td><strong>Developer & Infra</strong></td><td>OAuth2 / PAT / token</td><td>Mostly self-serve</td><td>GitHub, Cloudflare, Supabase, Datadog</td><td>High-impact permissions and secrets</td><td><span class="pill p-green">BUILD NOW</span></td></tr>
+    <tr><td><strong>Productivity</strong></td><td>OAuth2</td><td>Most self-serve category</td><td>Notion, Airtable, Linear, Asana</td><td>Workspace permissions and scope design</td><td><span class="pill p-green">BUILD NOW</span></td></tr>
+    <tr><td><strong>Finance & Fintech</strong></td><td>API key / OAuth2</td><td>Mixed; sandbox easier than production</td><td>Stripe, Xero, QuickBooks sandbox</td><td>Compliance, production approval, sensitive actions</td><td><span class="pill p-amber">BUILD WITH REVIEW</span></td></tr>
+    <tr><td><strong>AI & Media</strong></td><td>API key</td><td>Mostly self-serve / paid</td><td>Gemini, Reducto, transcript tooling</td><td>Fast-changing APIs, usage pricing, gated products</td><td><span class="pill p-green">BUILD + MONITOR</span></td></tr>
+  </tbody></table>
+  <div class="note"><strong>Key pattern:</strong> OAuth2 is the integration standard where user or organization consent is central; API keys dominate when a developer account or service credential is sufficient. The commercial/access layer—not the protocol—is usually the true blocker.</div>
+  <div class="footer"><span>Category-level findings convert raw research into a product roadmap</span><span>4</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">04 / What was built</div>
+  <h2>App Research Agent: a single-file, URL-driven research tool</h2>
+  <p class="subtitle">The tool accepts an application URL, maps it to a structured app record, simulates an eight-step research workflow, displays the report, and exports Markdown or JSON.</p>
+  <div class="grid g2" style="margin-top:26px;gap:30px">
+    <div class="card"><h3>Tool capabilities</h3><ul class="clean"><li>URL matching: exact domain, subdomain stripping, base-domain fallback, path disambiguation, and substring fallback.</li><li>Built-in database covering 100 apps across the 10 requested categories.</li><li>Structured fields: auth, access, API, GraphQL, MCP, buildability, risks, pricing, webhooks, SDKs, gotchas, and evidence.</li><li>Exports: on-screen report, Markdown, JSON, and downloadable `.md` file.</li></ul></div>
+    <div class="card"><h3>Technical design</h3><ul class="clean"><li>One `index.html` file with zero build step and no server requirement.</li><li>Client-side data only: no URLs or user data leave the browser.</li><li>Unknown URLs return a research template rather than a fabricated answer.</li><li>Designed for fast triage; verification workflow upgrades claims before publication.</li></ul></div>
+  </div>
+  <div class="grid g3" style="margin-top:36px"><div class="card"><div class="label">Input</div><div class="value blue">App URL</div><div class="small">Example: github.com</div></div><div class="card"><div class="label">Processing</div><div class="value amber">8 steps</div><div class="small">Discovery → extraction → evaluation</div></div><div class="card"><div class="label">Output</div><div class="value green">Evidence packet</div><div class="small">Human + machine consumable</div></div></div>
+  <div class="footer"><span>The agent is the research accelerator; the evidence loop makes it trustworthy</span><span>5</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">05 / Process and human role</div>
+  <h2>The workflow is designed to make uncertainty visible.</h2>
+  <p class="subtitle">The agent handles repeatable collection and normalization. Humans decide when an evidence gap, access restriction, or high-impact action requires direct confirmation.</p>
+  <div class="flow"><div class="flowbox" style="background:var(--blue)"><strong>1. Discover</strong>Resolve canonical docs, pricing, auth, API, and MCP sources.</div><div class="arrow">→</div><div class="flowbox" style="background:var(--green)"><strong>2. Extract</strong>Write structured claims with evidence URL, date, and confidence.</div><div class="arrow">→</div><div class="flowbox" style="background:var(--amber)"><strong>3. Browser-use</strong>Test sign-up, developer console, token path, plan, and approval requirements.</div><div class="arrow">→</div><div class="flowbox" style="background:var(--red)"><strong>4. Human check</strong>Resolve ambiguity, private docs, legal/commercial gates, and risky actions.</div><div class="arrow">→</div><div class="flowbox" style="background:var(--navy)"><strong>5. Publish</strong>Label claims Verified, Partial, or Unresolved.</div></div>
+  <div class="grid g2" style="margin-top:50px"><div><h3>Agent handles</h3><ul class="clean"><li>Consistent URL lookup and category classification.</li><li>Field extraction, source capture, and missing-field detection.</li><li>Large-scale table generation and exports.</li><li>Regression checks when documentation or price pages change.</li></ul></div><div><h3>Human needed when</h3><ul class="clean warn"><li>Developer documentation is private or blocked by login.</li><li>App approval, partner status, business verification, or enterprise contract is required.</li><li>Claims conflict across sources or depend on current plan/account state.</li><li>An agent could create, delete, spend, message, trade, or expose sensitive data.</li></ul></div></div>
+  <div class="footer"><span>Process shown alongside final output—agent speed with human accountability</span><span>6</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">06 / Proof / Runnable trigger</div>
+  <h2>Run the App Research Agent locally in three steps</h2>
+  <p class="subtitle">This satisfies the proof requirement without requiring a hosted backend. Host the same file later and replace the QR placeholder with the deployed URL.</p>
+  <div class="demo" style="margin-top:18px"><div class="trigger"><h3 style="color:#fff;font-size:21px">Runnable trigger</h3><p style="color:#cbd5e1">Open the single-file web application in any modern browser:</p><code>open index.html</code><p style="color:#cbd5e1">Then test a known app URL:</p><code>https://github.com</code><p style="color:#cbd5e1">Expected: structured report with auth, API, access, buildability, risks, evidence, and export controls.</p></div><div><div class="qr"><span>QR placeholder<br><br>After deployment, point QR to:<br><br><span class="blue">https://your-domain/app-research-agent</span></span></div><p class="small" style="text-align:center;margin-top:12px">Local proof is available now; hosted proof is one static-file deployment away.</p></div></div>
+  <ol class="steps" style="margin-top:22px"><li>Open <strong>index.html</strong> in Chrome, Firefox, Safari, or Edge.</li><li>Paste any of the 100 known URLs, or choose a quick-access chip.</li><li>Review the report and export the evidence as Markdown or JSON.</li></ol>
+  <div class="footer"><span>Proof: runnable trigger plus structured output and export functions</span><span>7</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">07 / Verification</div>
+  <h2>Accuracy check: the PDF was often useful, but not uniformly publishable.</h2>
+  <p class="subtitle">A stratified sample was compared against the prior findings and available first-party or official documentation. The rubric assessed the high-impact core fields rather than superficial prose similarity.</p>
+  <div class="grid g3" style="margin-top:28px"><div class="card"><div class="label">First pass</div><div class="value red">40%</div><div class="small">8/20 fully correct under strict core-field scoring</div></div><div class="card"><div class="label">After loops</div><div class="value green">75%</div><div class="small">15/20 fully verified after source and taxonomy rechecks</div></div><div class="card"><div class="label">Remaining gap</div><div class="value amber">Labeled</div><div class="small">Unresolved claims were not converted into false passes</div></div></div>
+  <table style="margin-top:32px"><thead><tr><th>App</th><th>What was right</th><th>What changed after verification</th><th>Status</th></tr></thead><tbody>
+    <tr><td><strong>Salesforce</strong></td><td>OAuth2, enterprise gating, broad API, org-specific complexity.</td><td>Core assessment held up; prior findings had understated the gate and integration complexity.</td><td><span class="pill p-green">PASS</span></td></tr>
+    <tr><td><strong>Podio</strong></td><td>Self-serve with limits, OAuth/API-token access, REST API.</td><td>Corrected prior finding that had labeled Podio as gated.</td><td><span class="pill p-green">PASS</span></td></tr>
+    <tr><td><strong>Slack</strong></td><td>OAuth2, broad APIs, self-serve app creation.</td><td>Added admin/workspace/plan dependencies; self-serve is only stage one.</td><td><span class="pill p-amber">PARTIAL</span></td></tr>
+    <tr><td><strong>Shopify / SendGrid</strong></td><td>Core auth, access and API claims were broadly right.</td><td>Official MCP claims were not sufficiently proven; reclassified as unresolved.</td><td><span class="pill p-amber">PARTIAL</span></td></tr>
+    <tr><td><strong>Fanbasis</strong></td><td>Basic product description only.</td><td>Homepage-only evidence cannot validate detailed API/auth claims.</td><td><span class="pill p-red">UNRESOLVED</span></td></tr>
+  </tbody></table>
+  <div class="note"><strong>Honesty rule:</strong> 75% is a sample estimate, not a claim that every one of the 100 rows is verified. Confidence improves because uncertain claims are exposed, corrected, or held for review.</div>
+  <div class="footer"><span>Hits and misses are shown to demonstrate the system’s quality behavior</span><span>8</span></div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">08 / Coverage and deliverables</div>
+  <h2>All 100 apps are available as structured data; this deck is the readable decision layer.</h2>
+  <p class="subtitle">Use the appendix for a compact 100-app view. Use JSON for an agent, CSV for filtering, and the evidence links for human review of any important row.</p>
+  <div class="grid g3" style="margin-top:25px"><div class="card"><h3 class="blue">Machine consumption</h3><p class="small">JSON supports retrieval, filtering, evidence refresh, quality checks, and programmatic routing by app/category/blocker.</p></div><div class="card"><h3 class="green">Human consumption</h3><p class="small">CSV supports sorting and review; the case study frames priorities, patterns, caveats, and decision logic.</p></div><div class="card"><h3 class="amber">Verification consumption</h3><p class="small">The audit sample and methodology make it possible to inspect how confidence was assigned and improved.</p></div></div>
+  <div class="files" style="margin-top:34px"><div class="file">composio_100_apps_full_data.json</div><div class="file">composio_100_apps_summary.csv</div><div class="file">verification_sample.csv</div><div class="file">verification_methodology.txt</div><div class="file">README.md</div></div>
+  <div class="grid g2" style="margin-top:42px"><div class="card"><h3>For an agent</h3><p class="small">Read JSON → select an app → inspect evidence + verification state → request missing source validation → update the claim packet.</p></div><div class="card"><h3>For a reviewer</h3><p class="small">Read the category matrix → open a row’s cited docs → decide whether its verification state permits product investment.</p></div></div>
+  <div class="footer"><span>Coverage statement: 100 records retained; curated slides optimize clarity</span><span>9</span></div>
+</section>
+
+<section class="slide"><div class="eyebrow">Appendix A / 100-app matrix</div><h2>CRM, Support, Communication, Marketing</h2><p class="subtitle">Legend: <span class="pass">● PASS</span> validated in cross-check; <span class="partial">● PARTIAL</span> correct core facts but qualification/correction required; <span class="unresolved">● UNRESOLVED</span> requires first-party or human verification; <span class="queue">○ QUEUE</span> included in dataset, awaiting audit.</p><table class="app-table"><thead><tr><th>App</th><th>Auth</th><th>Access</th><th>API / buildability</th><th>MCP</th><th>Verification</th></tr></thead><tbody id="matrixA"></tbody></table><div class="footer"><span>Full data remains available in JSON/CSV; this is the compact visual index</span><span>10</span></div></section>
+<section class="slide"><div class="eyebrow">Appendix B / 100-app matrix</div><h2>Ecommerce, Data/SEO, Developer/Infra</h2><p class="subtitle">Access and MCP are dynamic fields; verify again at implementation time.</p><table class="app-table"><thead><tr><th>App</th><th>Auth</th><th>Access</th><th>API / buildability</th><th>MCP</th><th>Verification</th></tr></thead><tbody id="matrixB"></tbody></table><div class="footer"><span>Full data remains available in JSON/CSV; this is the compact visual index</span><span>11</span></div></section>
+<section class="slide"><div class="eyebrow">Appendix C / 100-app matrix</div><h2>Productivity, Finance, AI/Research</h2><p class="subtitle">“Queue” means research coverage exists but evidence audit is still pending—not that the app is low priority.</p><table class="app-table"><thead><tr><th>App</th><th>Auth</th><th>Access</th><th>API / buildability</th><th>MCP</th><th>Verification</th></tr></thead><tbody id="matrixC"></tbody></table><div class="footer"><span>Full data remains available in JSON/CSV; this is the compact visual index</span><span>12</span></div></section>
+
+<section class="slide">
+  <div class="eyebrow">09 / Recommendation</div>
+  <h2>Ship the agent with provenance and review states—not just answers.</h2>
+  <p class="subtitle">The research is useful immediately for prioritization. It becomes dependable for production decisions only when it treats evidence and uncertainty as first-class output fields.</p>
+  <div class="grid g3" style="margin-top:30px"><div class="card" style="border-color:#86efac"><h3 class="green">Build now</h3><p class="small">Self-serve apps with broad APIs and strong docs: GitHub, Notion, HubSpot, Twilio, Mailchimp, Shopify, Stripe, Apify, Supabase.</p></div><div class="card" style="border-color:#fcd34d"><h3 class="amber">Build with caveat</h3><p class="small">Apps whose access changes by scope, plan or account: Slack, Pinterest, Google Ads, Shopify, QuickBooks, Plaid.</p></div><div class="card" style="border-color:#fca5a5"><h3 class="red">Route to outreach / review</h3><p class="small">Enterprise or weakly evidenced apps: DealCloud, Gladly, PitchBook, Fanbasis, Waterfall, LinkedIn Marketing.</p></div></div>
+  <div class="note" style="margin-top:45px"><strong>Success criterion:</strong> a reviewer can understand the market patterns in two minutes; an agent can consume the records without parsing slides; and any claim can be traced to a source or explicitly labeled unresolved.</div>
+  <div class="footer"><span>End of self-explanatory case study</span><span>13</span></div>
+</section>
+</main>
+
+<script>
+const groups={
+A:[
+['CRM & Sales',['Salesforce|OAuth2|Production gated|Broad REST/SOAP; difficult|No|Partial','HubSpot|OAuth2/private token|Self-serve|Broad REST; excellent|Unresolved|Partial','Pipedrive|API token + OAuth|Self-serve|Moderate REST; good|No|Partial','Attio|PAT + OAuth|Self-serve|Moderate REST; good|No|Partial','Twenty|API key|Self-serve/open source|Growing API; good|No|Partial','Podio|OAuth2 + token|Self-serve|Moderate REST; moderate|No|Pass','Zoho CRM|OAuth2|Self-serve|Broad REST; good|No|Queue','Close|API key|Self-serve|Moderate REST; good|No|Queue','Copper|OAuth2/API key|Self-serve|Moderate REST; moderate|No|Queue','DealCloud|OAuth2/API key|Production gated|Instance REST; difficult|No|Pass']],
+['Support & Helpdesk',['Zendesk|OAuth2/legacy token|Self-serve + plan|Broad REST; good|Unresolved|Partial','Intercom|OAuth2/access token|Self-serve|Broad REST; good|No|Pass','Freshdesk|API key/OAuth2|Self-serve|Broad REST; good|No|Pass','Front|OAuth2/token|Self-serve|Moderate REST; good|No|Pass','Pylon|API key|Self-serve|Narrow REST; moderate|No|Pass','LiveAgent|API key|Self-serve|Moderate REST; moderate|No|Queue','Plain|API key|Self-serve|REST/GraphQL; good|No|Queue','HelpScout|OAuth2/token|Self-serve|Moderate REST; good|No|Queue','Gorgias|API key/OAuth2|Self-serve|Moderate REST; good|No|Queue','Gladly|OAuth2/token|Production gated|Moderate REST; difficult|No|Queue']],
+['Communication & Messaging',['Slack|OAuth2|Self-serve + admin|Broad REST/events; good|Unresolved|Partial','Twilio|Basic/API key|Self-serve|Very broad REST; excellent|No|Pass','Zoho Cliq|OAuth2|Self-serve|REST; good|No|Queue','Lark Suite|OAuth2/app token|Self-serve|Broad REST; good|No|Queue','Pumble|API key|Self-serve|Narrow REST; moderate|No|Queue','Discord|Bot token/OAuth2|Self-serve|REST/Gateway; excellent|No|Pass','Telegram|Bot token|Self-serve|Bot API; excellent|No|Pass','WhatsApp Business|OAuth2/token|Production gated|Graph API; good|No|Queue','Aircall|OAuth2/API key|Self-serve|Moderate REST; moderate|No|Queue','Vonage|API key/JWT|Self-serve|Broad REST; good|No|Queue']],
+['Marketing, Ads, Email & Social',['Google Ads|OAuth2|Production gated|REST/GAQL; good|Unresolved|Queue','Meta Marketing|OAuth2|Production gated|Graph API; good|No|Queue','LinkedIn Marketing|OAuth2|Partner gated|Marketing REST; difficult|No|Queue','GoHighLevel|OAuth2/PIT|Self-serve + plan|REST; good|No|Queue','Mailchimp|API key/OAuth2|Self-serve|Broad REST; good|No|Pass','Klaviyo|API key/OAuth2|Self-serve|REST/GraphQL beta; good|No|Partial','Systeme.io|API key|Self-serve|Narrow REST; moderate|No|Queue','Pinterest|OAuth2|Self-serve + scope review|REST; moderate|No|Partial','Threads|OAuth2|Production gated|Graph API; moderate|No|Queue','SendGrid|Scoped API key|Self-serve|Broad REST; excellent|Unresolved|Partial']]
+],
+B:[
+['Ecommerce',['Shopify|OAuth2/admin token|Self-serve|REST/GraphQL; excellent|Unresolved|Partial','WooCommerce|Consumer key/secret|Self-hosted|REST; good|No|Pass','BigCommerce|OAuth2/API token|Self-serve|REST/GraphQL; good|No|Pass','Salesforce Commerce|OAuth2|Production gated|Enterprise REST; difficult|No|Queue','Adobe Commerce|OAuth/token|Self-hosted|REST/GraphQL; good|No|Queue','Squarespace|API key|Self-serve + paid|Narrow REST; moderate|No|Queue','Ecwid|OAuth2/token|Self-serve|Moderate REST; good|No|Queue','Gumroad|API token/OAuth|Self-serve|Narrow REST; moderate|No|Queue','Amazon SP-API|OAuth2/LWA|Production gated|Broad REST; difficult|No|Queue','Fanbasis|Unknown|Unknown|Unknown|Unknown|Unresolved']],
+['Data, SEO & Scraping',['DataForSEO|Basic/API credentials|Self-serve + credits|Broad REST; good|Unresolved|Queue','SE Ranking|API key|Paid plan|SEO REST; good|No|Queue','Ahrefs|Bearer key|Paid plan|SEO REST; good|Unresolved|Queue','MrScraper|API key|Self-serve|Scraping REST; good|No|Queue','Apify|API token|Self-serve|Actors/REST; excellent|Unresolved|Queue','Firecrawl|API key|Self-serve|Crawl REST; good|Community|Queue','Bright Data|Token + proxy creds|Self-serve + paid|REST/proxy; good|No|Queue','Sherlock|None/CLI|Open source|CLI only; moderate|No|Queue','Waterfall|API key|Production gated|B2B REST; difficult|No|Unresolved','Clay|API key/OAuth|Self-serve + paid|Enrichment REST; good|No|Queue']],
+['Developer, Infra & Data',['GitHub|OAuth2/PAT/App|Self-serve|REST/GraphQL; excellent|Unresolved|Queue','Vercel|OAuth2/token|Self-serve|REST; good|No|Queue','Netlify|OAuth2/PAT|Self-serve|REST; good|No|Queue','Cloudflare|API token|Self-serve|Broad REST; excellent|No|Queue','Supabase|API key/JWT|Self-serve|REST/realtime; excellent|No|Queue','Neo4j|Basic/API key|Self-serve|Graph API; good|No|Queue','Snowflake|OAuth2/key pair|Enterprise gated|SQL/REST; good|Unresolved|Queue','MongoDB Atlas|API key|Self-serve|Management REST; good|No|Queue','Datadog|API/app keys|Self-serve|Broad REST; good|No|Queue','Sentry|Bearer token|Self-serve|REST; good|No|Queue']]
+],
+C:[
+['Productivity & Project Management',['Notion|OAuth2/internal token|Self-serve|REST; excellent|Unresolved|Queue','Airtable|OAuth2/PAT|Self-serve|REST; good|No|Queue','Linear|OAuth2/API key|Self-serve|GraphQL; excellent|No|Queue','Jira/Atlassian|OAuth2/API token|Self-serve|Broad REST; good|No|Queue','Asana|OAuth2/PAT|Self-serve|REST; good|No|Queue','Monday.com|OAuth2/API key|Self-serve|GraphQL; good|No|Queue','ClickUp|OAuth2|Self-serve|REST; good|No|Queue','Coda|API key|Self-serve|REST; good|No|Queue','Smartsheet|OAuth2|Paid plan|REST; good|No|Queue','Harvest|OAuth2|Self-serve|REST; good|No|Queue']],
+['Finance & Fintech',['Stripe|Secret API key|Self-serve|Broad REST; excellent|No|Queue','Plaid|Client ID/secret|Sandbox self-serve|Financial REST; good|No|Queue','Binance|API key/HMAC|Self-serve|REST/streams; good|No|Queue','iPayX|API key|Paid plan|Payments REST; good|No|Queue','Paygent|API key|Merchant gated|Payments REST; difficult|No|Queue','QuickBooks|OAuth2|Self-serve|Accounting REST; good|Community|Queue','Xero|OAuth2|Self-serve|Accounting REST; good|No|Queue','Brex|OAuth2/API key|Account required|Spend REST; good|No|Queue','Ramp|OAuth2|Account required|Spend REST; good|No|Queue','PitchBook|API key|Enterprise gated|Research REST; difficult|No|Unresolved']],
+['AI, Research & Media',['Gemini|API key/OAuth2|Self-serve|Generative AI REST; excellent|Unresolved|Queue','Otter.ai|OAuth2|Paid plan|Transcript API; good|Unresolved|Queue','Fathom|API key|Paid plan|Meetings REST; good|No|Queue','Consensus|OAuth2|Production gated|Research API; difficult|No|Unresolved','Reducto|API key|Paid plan|Document REST; good|No|Queue','Devin|API key|Gated|Agent API; good|Unresolved|Queue','Higgsfield|API key|Self-serve|CLI/API; good|No|Queue','Mermaid CLI|None/CLI|Open source|CLI only; moderate|No|Queue','Transcript API|API key|Paid plan|Transcription REST; good|No|Queue','Grain|API key|Paid plan|Meeting REST; good|No|Queue']]
+]};
+function status(s){if(s==='Pass')return '<span class="pass">● PASS</span>';if(s==='Partial')return '<span class="partial">● PARTIAL</span>';if(s==='Unresolved')return '<span class="unresolved">● UNRESOLVED</span>';return '<span class="queue">○ QUEUE</span>'}
+function render(id,groups){document.getElementById(id).innerHTML=groups.map(g=>{let rows=g[1].map(x=>{let a=x.split('|');return `<tr><td><strong>${a[0]}</strong></td><td>${a[1]}</td><td>${a[2]}</td><td>${a[3]}</td><td>${a[4]}</td><td>${status(a[5])}</td></tr>`}).join('');return `<tr class="category-row"><td colspan="6">${g[0]} — ${g[1].length} apps</td></tr>${rows}`}).join('')}
+render('matrixA',groups.A);render('matrixB',groups.B);render('matrixC',groups.C);
+</script>
+</body>
+</html>
